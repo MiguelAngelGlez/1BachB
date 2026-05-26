@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Curso 25-26</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Blanca · 1º Bach</title>
 
   <style>
 
@@ -23,121 +20,199 @@
 
     body{
       font-family: Inter, sans-serif;
-      background:#050816;
+      background:#070b17;
       color:white;
       overflow-x:hidden;
     }
 
-    /* ---------------- BACKGROUND ---------------- */
+    /* ---------------- FONDO ---------------- */
 
-    .background{
+    body::before{
+      content:"";
       position:fixed;
       inset:0;
       z-index:-3;
 
       background:
-      linear-gradient(rgba(5,8,22,0.15), rgba(5,8,22,0.25)),
-      url("/1BachB/grupo.jpg");
-
-      background-size:cover;
-      background-position:center;
-
-      transform:scale(1.08);
-
-      animation:slowZoom 25s ease-in-out infinite alternate;
-    }
-
-    @keyframes slowZoom{
-      from{
-        transform:scale(1.08);
-      }
-
-      to{
-        transform:scale(1.15);
-      }
-    }
-
-    .overlay{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-
-      backdrop-filter:blur(6px);
-    }
-
-    .particles{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-
-      background-image:
-      radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
-
-      background-size:40px 40px;
-
-      opacity:0.18;
-
-      animation:moveParticles 40s linear infinite;
-    }
-
-    @keyframes moveParticles{
-      from{
-        transform:translate(0,0);
-      }
-
-      to{
-        transform:translate(-200px,-200px);
-      }
+      radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 40%),
+      #070b17;
     }
 
     /* ---------------- HERO ---------------- */
 
     .hero{
-      min-height:100vh;
+      width:100%;
+      max-width:1200px;
 
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
+      margin:auto;
 
+      padding:40px 20px 60px;
+    }
+
+    .group-photo{
+      width:100%;
+      border-radius:32px;
+
+      overflow:hidden;
+
+      position:relative;
+
+      box-shadow:
+      0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    .group-photo img{
+      width:100%;
+      display:block;
+
+      max-height:700px;
+      object-fit:cover;
+    }
+
+    .hero-content{
       text-align:center;
 
-      padding:40px 20px;
+      margin-top:50px;
     }
 
     h1{
-      font-size:6rem;
+      font-size:4.5rem;
       font-weight:800;
 
-      letter-spacing:-4px;
+      letter-spacing:-3px;
 
       margin-bottom:25px;
 
-      animation:fadeUp 1.2s ease;
+      animation:fadeUp 1s ease;
     }
 
     .phrase{
       max-width:850px;
 
-      font-size:1.4rem;
+      margin:auto;
+
+      font-size:1.3rem;
       line-height:1.9;
 
-      color:rgba(255,255,255,0.88);
+      color:rgba(255,255,255,0.82);
 
-      animation:fadeUp 1.5s ease;
+      animation:fadeUp 1.3s ease;
     }
 
     .scroll{
-      position:absolute;
-      bottom:40px;
+      margin-top:40px;
 
-      font-size:0.95rem;
-      letter-spacing:2px;
+      color:rgba(255,255,255,0.45);
+
+      letter-spacing:3px;
       text-transform:uppercase;
-
-      color:rgba(255,255,255,0.55);
+      font-size:0.85rem;
 
       animation:float 2.5s ease-in-out infinite;
+    }
+
+    /* ---------------- GALERÍA ---------------- */
+
+    .gallery-section{
+      width:100%;
+      max-width:1200px;
+
+      margin:auto;
+
+      padding:20px 20px 120px;
+    }
+
+    .gallery-title{
+      text-align:center;
+
+      font-size:2rem;
+      font-weight:700;
+
+      margin-bottom:60px;
+
+      color:white;
+    }
+
+    .gallery{
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit, minmax(280px, 1fr));
+
+      gap:40px;
+    }
+
+    .photo{
+      background:rgba(255,255,255,0.05);
+
+      border-radius:28px;
+
+      overflow:hidden;
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      backdrop-filter:blur(10px);
+
+      transition:0.45s ease;
+
+      box-shadow:
+      0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .photo:hover{
+      transform:
+      translateY(-8px)
+      scale(1.02);
+    }
+
+    .photo img{
+      width:100%;
+      height:420px;
+
+      object-fit:cover;
+
+      display:block;
+    }
+
+    .photo-text{
+      padding:22px;
+
+      text-align:center;
+
+      color:rgba(255,255,255,0.72);
+
+      font-size:0.95rem;
+
+      letter-spacing:1px;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer{
+      text-align:center;
+
+      padding:0 20px 70px;
+
+      color:rgba(255,255,255,0.35);
+
+      font-size:0.9rem;
+
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    /* ---------------- ANIMACIONES ---------------- */
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(25px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
     @keyframes float{
@@ -154,142 +229,34 @@
       }
     }
 
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(30px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    /* ---------------- GALLERY ---------------- */
-
-    .gallery-section{
-      width:100%;
-      max-width:1200px;
-
-      margin:auto;
-
-      padding:80px 20px 120px;
-    }
-
-    .gallery-title{
-      text-align:center;
-
-      font-size:2.2rem;
-      font-weight:700;
-
-      margin-bottom:70px;
-
-      color:white;
-    }
-
-    .gallery{
-      display:grid;
-
-      grid-template-columns:
-      repeat(auto-fit, minmax(260px, 1fr));
-
-      gap:40px;
-    }
-
-    .photo{
-      background:rgba(255,255,255,0.08);
-
-      padding:16px 16px 60px;
-
-      border-radius:26px;
-
-      backdrop-filter:blur(12px);
-
-      border:1px solid rgba(255,255,255,0.08);
-
-      box-shadow:
-      0 10px 40px rgba(0,0,0,0.35);
-
-      transition:0.45s ease;
-
-      position:relative;
-    }
-
-    .photo:nth-child(odd){
-      transform:rotate(-2deg);
-    }
-
-    .photo:nth-child(even){
-      transform:rotate(2deg);
-    }
-
-    .photo:hover{
-      transform:rotate(0deg) scale(1.03);
-    }
-
-    .photo img{
-      width:100%;
-      height:380px;
-
-      object-fit:cover;
-
-      border-radius:18px;
-
-      display:block;
-    }
-
-    .photo-text{
-      position:absolute;
-
-      bottom:18px;
-      left:0;
-      right:0;
-
-      text-align:center;
-
-      color:rgba(255,255,255,0.75);
-
-      font-size:0.95rem;
-
-      letter-spacing:1px;
-    }
-
-    /* ---------------- FOOTER ---------------- */
-
-    footer{
-      text-align:center;
-
-      padding:0 20px 70px;
-
-      color:rgba(255,255,255,0.42);
-
-      font-size:0.95rem;
-
-      letter-spacing:2px;
-      text-transform:uppercase;
-    }
-
-    /* ---------------- MOBILE ---------------- */
+    /* ---------------- MÓVIL ---------------- */
 
     @media(max-width:768px){
 
+      .hero{
+        padding-top:20px;
+      }
+
       h1{
-        font-size:3.8rem;
+        font-size:3rem;
         letter-spacing:-2px;
       }
 
       .phrase{
-        font-size:1.08rem;
+        font-size:1.05rem;
         line-height:1.8;
       }
 
-      .gallery-title{
-        font-size:1.7rem;
+      .group-photo img{
+        max-height:none;
+      }
+
+      .gallery{
+        gap:28px;
       }
 
       .photo img{
-        height:320px;
+        height:auto;
       }
 
     }
@@ -298,26 +265,29 @@
 </head>
 <body>
 
-  <!-- FONDO -->
-  <div class="background"></div>
-  <div class="overlay"></div>
-  <div class="particles"></div>
-
   <!-- HERO -->
   <section class="hero">
 
-    <!-- NOMBRE -->
-    <h1>Blanca</h1>
+    <!-- FOTO GRUPAL -->
+    <div class="group-photo">
+      <img src="/1BachB/grupo.jpg">
+    </div>
 
-    <!-- FRASE -->
-    <p class="phrase">
-      Hay personas que hacen que incluso los días normales
-      terminen convirtiéndose en recuerdos bonitos.
-      Gracias por formar parte de este pequeño caos llamado 1º Bach.
-    </p>
+    <!-- TEXTO -->
+    <div class="hero-content">
 
-    <div class="scroll">
-      ↓ recuerdos ↓
+      <h1>Blanca</h1>
+
+      <p class="phrase">
+        Hay personas que hacen que incluso los días normales
+        terminen convirtiéndose en recuerdos bonitos.
+        Gracias por formar parte de este pequeño caos llamado 1º Bach.
+      </p>
+
+      <div class="scroll">
+        ↓ recuerdos ↓
+      </div>
+
     </div>
 
   </section>
@@ -334,6 +304,7 @@
       <!-- FOTO 1 -->
       <div class="photo">
         <img src="/1BachB/blanca1.jpg">
+
         <div class="photo-text">
           un recuerdo más :)
         </div>
@@ -342,6 +313,7 @@
       <!-- FOTO 2 -->
       <div class="photo">
         <img src="/1BachB/blanca2.jpg">
+
         <div class="photo-text">
           2025 — 2026
         </div>
@@ -349,12 +321,12 @@
 
       <!-- FOTO 3 -->
       <div class="photo">
-        <img src="/1BachB/blanca2.jpg">
+        <img src="/1BachB/blanca3.jpg">
+
         <div class="photo-text">
-          2025 — 2026
+          momentos que se quedan ✨
         </div>
       </div>
-      
 
     </div>
 
