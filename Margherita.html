@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Curso 25-26</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family: Inter, sans-serif;
+      background:#070b17;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* ---------------- FONDO ---------------- */
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-3;
+
+      background:
+      radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 40%),
+      #070b17;
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero{
+      width:100%;
+      max-width:1200px;
+
+      margin:auto;
+
+      padding:40px 20px 60px;
+    }
+
+    .group-photo{
+      width:100%;
+      border-radius:32px;
+
+      overflow:hidden;
+
+      position:relative;
+
+      box-shadow:
+      0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    .group-photo img{
+      width:100%;
+      display:block;
+
+      max-height:700px;
+      object-fit:cover;
+    }
+
+    .hero-content{
+      text-align:center;
+
+      margin-top:50px;
+    }
+
+    h1{
+      font-size:4.5rem;
+      font-weight:800;
+
+      letter-spacing:-3px;
+
+      margin-bottom:25px;
+
+      animation:fadeUp 1s ease;
+    }
+
+    .phrase{
+      max-width:850px;
+
+      margin:auto;
+
+      font-size:1.3rem;
+      line-height:1.9;
+
+      color:rgba(255,255,255,0.82);
+
+      animation:fadeUp 1.3s ease;
+    }
+
+    .scroll{
+      margin-top:40px;
+
+      color:rgba(255,255,255,0.45);
+
+      letter-spacing:3px;
+      text-transform:uppercase;
+      font-size:0.85rem;
+
+      animation:float 2.5s ease-in-out infinite;
+    }
+
+    /* ---------------- GALERÍA ---------------- */
+
+    .gallery-section{
+      width:100%;
+      max-width:1200px;
+
+      margin:auto;
+
+      padding:20px 20px 120px;
+    }
+
+    .gallery-title{
+      text-align:center;
+
+      font-size:2rem;
+      font-weight:700;
+
+      margin-bottom:60px;
+
+      color:white;
+    }
+
+    .gallery{
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit, minmax(280px, 1fr));
+
+      gap:40px;
+    }
+
+    .photo{
+      background:rgba(255,255,255,0.05);
+
+      border-radius:28px;
+
+      overflow:hidden;
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      backdrop-filter:blur(10px);
+
+      transition:0.45s ease;
+
+      box-shadow:
+      0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .photo:hover{
+      transform:
+      translateY(-8px)
+      scale(1.02);
+    }
+
+    .photo img{
+      width:100%;
+      height:420px;
+
+      object-fit:cover;
+
+      display:block;
+    }
+
+    .photo-text{
+      padding:22px;
+
+      text-align:center;
+
+      color:rgba(255,255,255,0.72);
+
+      font-size:0.95rem;
+
+      letter-spacing:1px;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer{
+      text-align:center;
+
+      padding:0 20px 70px;
+
+      color:rgba(255,255,255,0.35);
+
+      font-size:0.9rem;
+
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    /* ---------------- ANIMACIONES ---------------- */
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(25px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(8px);
+      }
+
+      100%{
+        transform:translateY(0);
+      }
+    }
+
+    /* ---------------- MÓVIL ---------------- */
+
+    @media(max-width:768px){
+
+      .hero{
+        padding-top:20px;
+      }
+
+      h1{
+        font-size:3rem;
+        letter-spacing:-2px;
+      }
+
+      .phrase{
+        font-size:1.05rem;
+        line-height:1.8;
+      }
+
+      .group-photo img{
+        max-height:none;
+      }
+
+      .gallery{
+        gap:28px;
+      }
+
+      .photo img{
+        height:auto;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <!-- FOTO GRUPAL -->
+    <div class="group-photo">
+      <img src="/1BachB/grupo.jpg">
+    </div>
+
+    <!-- TEXTO -->
+    <div class="hero-content">
+
+      <h1>Blanca</h1>
+
+      <p class="phrase">
+        Hay personas que hacen que incluso los días normales
+        terminen convirtiéndose en recuerdos bonitos.
+        Gracias por formar parte de este pequeño caos llamado 1º Bach.
+      </p>
+
+      <div class="scroll">
+        ↓ recuerdos ↓
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="gallery-section">
+
+    <h2 class="gallery-title">
+      Algunos momentos ✨
+    </h2>
+
+    <div class="gallery">
+
+      <!-- FOTO 1 -->
+      <div class="photo">
+        <img src="/1BachB/blanca1.jpg">
+
+        <div class="photo-text">
+          un recuerdo más :)
+        </div>
+      </div>
+
+      <!-- FOTO 2 -->
+      <div class="photo">
+        <img src="/1BachB/blanca2.jpg">
+
+        <div class="photo-text">
+          2025 — 2026
+        </div>
+      </div>
+
+      <!-- FOTO 3 -->
+      <div class="photo">
+        <img src="/1BachB/blanca3.jpg">
+
+        <div class="photo-text">
+          momentos que se quedan ✨
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    1º Bachillerato · 2025 — 2026
+  </footer>
